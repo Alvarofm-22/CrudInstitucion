@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="mainTemplate.html :: layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Crear</title>
+</head>
+<body th:fragment="content">
+
+<div class="container py-5">
+
+  <h1 class="text-center pt-4">Registrar Nuevo Estudiante</h1>
+
+  <form th:action="@{/Estudiante/Create}" method="post" th:object="${estudiante}" class="container py-5">
+      <div class="row">
+            <div class="col-lg-6 align-self-center">
+
+              <fieldset class="mb-4 p-3 border border-secondary rounded">
+                <legend>Datos de Estudiante</legend>
+
+                <div class="mb-3">
+                  <label for="nombres" class="form-label">Nombres</label>
+                  <input type="text" class="form-control" id="nombres" aria-describedby="nombres" th:field="*{nombres}"  required>
+                  <div th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}" class="text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+                  <input type="text" class="form-control" id="apellidoPaterno" aria-describedby="apellidoPaterno" th:field="*{apellidoPaterno}"  required>
+                  <div th:if="${#fields.hasErrors('apellidoPaterno')}" th:errors="*{apellidoPaterno}" class="text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+                  <input type="text" class="form-control" id="apellidoMaterno" aria-describedby="apellidoMaterno" th:field="*{apellidoMaterno}"  required>
+                  <div th:if="${#fields.hasErrors('apellidoMaterno')}" th:errors="*{apellidoMaterno}" class="text-danger"></div>
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                  <input type="date" class="form-control" id="fechaNacimiento" aria-describedby="fechaNacimiento" th:field="*{fechaNacimiento}"  required>
+                  <div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}" class="text-danger"></div>
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="dni" class="form-label">DNI</label>
+                  <input type="text" class="form-control" id="dni" aria-describedby="dni" th:field="*{dni}"  required>
+                  <div th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}" class="text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="genero" class="form-label">Genero</label>
+                  <select class="form-select" id="genero" th:field="*{genero}" required>
+                    <option value="" selected>Seleccione una opción</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                  </select>
+                  <div th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}" class="text-danger"></div>
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="direccion" class="form-label">Direccion</label>
+                  <input type="text" class="form-control" id="direccion" aria-describedby="direccion" th:field="*{direccion}"  required>
+                  <div th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}" class="text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Telefono</label>
+                  <input type="text" class="form-control" id="telefono" aria-describedby="telefono" th:field="*{telefono}"  required>
+                  <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="email" aria-describedby="email" th:field="*{email}"  required>
+                  <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></div>
+                </div>
+
+              </fieldset>
+
+            </div>
+
+          <div class="col-lg-6">
+
+            <fieldset class="mb-4 p-3 border border-secondary rounded">
+
+              <legend>Datos de Apoderado</legend>
+
+              <div class="mb-3">
+                <label for="nombreApoderado" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombreApoderado" aria-describedby="nombreApoderado" th:field="*{nombreApoderado}"  required>
+                <div th:if="${#fields.hasErrors('nombreApoderado')}" th:errors="*{nombreApoderado}" class="text-danger"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="apellidoPaterApod" class="form-label">Apellido Paterno</label>
+                <input type="text" class="form-control" id="apellidoPaterApod" aria-describedby="apellidoPaterApod" th:field="*{apellidoPaterApod}"  required>
+                <div th:if="${#fields.hasErrors('apellidoPaterApod')}" th:errors="*{apellidoPaterApod}" class="text-danger"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="apellidoMaterApod" class="form-label">Apellido Materno</label>
+                <input type="text" class="form-control" id="apellidoMaterApod" aria-describedby="apellidoMaterApod" th:field="*{apellidoMaterApod}"  required>
+                <div th:if="${#fields.hasErrors('apellidoMaterApod')}" th:errors="*{apellidoMaterApod}" class="text-danger"></div>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="dniApoderado" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dniApoderado" aria-describedby="dniApoderado" th:field="*{dniApoderado}"  required>
+                <div th:if="${#fields.hasErrors('dniApoderado')}" th:errors="*{dniApoderado}" class="text-danger"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="generoApoderado" class="form-label">Genero</label>
+                <select class="form-select" id="generoApoderado" th:field="*{generoApoderado}" required>
+                  <option value="" selected>Seleccione una opción</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                </select>
+                <div th:if="${#fields.hasErrors('generoApoderado')}" th:errors="*{generoApoderado}" class="text-danger"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="direccionApoderado" class="form-label">Direccion</label>
+                <input type="text" class="form-control" id="direccionApoderado" aria-describedby="direccionApoderado" th:field="*{direccionApoderado}"  required>
+                <div th:if="${#fields.hasErrors('direccionApoderado')}" th:errors="*{direccionApoderado}" class="text-danger"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="telefonoApoderado" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="telefonoApoderado" aria-describedby="telefonoApoderado" th:field="*{telefonoApoderado}"  required>
+                <div th:if="${#fields.hasErrors('telefonoApoderado')}" th:errors="*{telefonoApoderado}" class="text-danger"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="emailApoderado" class="form-label">Email</label>
+                <input type="text" class="form-control" id="emailApoderado" aria-describedby="email" th:field="*{emailApoderado}"  required>
+                <div th:if="${#fields.hasErrors('emailApoderado')}" th:errors="*{emailApoderado}" class="text-danger"></div>
+              </div>
+
+            </fieldset>
+          </div>
+        </div>
+
+
+      <div class="row">
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <a href="/Estudiantes" class="btn btn-danger">Salir</a>
+        </div>
+      </div>
+
+  </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
